@@ -306,18 +306,6 @@ let g:LoupeLoaded=1
 let s:cpoptions=&cpoptions
 set cpoptions&vim
 
-" Reasonable defaults for search-related settings.
-if &history < 1000
-  set history=1000 " Longer search and command history (default is 50).
-endif
-if has('extra_search')
-  set hlsearch   " Highlight search strings.
-  set incsearch  " Incremental search ("find as you type").
-endif
-set ignorecase   " Ignore case when searching.
-set shortmess+=s " Don't echo search wrap messages.
-set smartcase    " Case-sensitive search if search string includes a capital letter.
-
 ""
 " @option g:LoupeClearHighlightMap boolean 1
 "
