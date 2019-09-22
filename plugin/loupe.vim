@@ -343,7 +343,7 @@ endif
 " - The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
 "   in your |.vimrc|.
 nnoremap <silent> <Plug>(LoupeClearHighlight)
-      \ :nohlsearch<bar>
+      \ <Cmd>nohlsearch<bar>
       \ call loupe#private#clear_highlight()<CR>
 
 function! s:Nohlsearch(command)
@@ -467,7 +467,7 @@ function! s:map(keys, name)
         \ l:action .
         \ 'zv' .
         \ l:center_string .
-        \ ':call loupe#hlmatch()<CR>'
+        \ '<Cmd>call loupe#hlmatch()<CR>'
 endfunction
 
 ""
