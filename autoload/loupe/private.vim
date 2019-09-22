@@ -80,12 +80,10 @@ endfunction
 
 " Prepare to highlight the match as soon as the cursor moves to it.
 function! loupe#private#prepare_highlight(result) abort
-  if has('autocmd')
-    augroup LoupeHightlightMatch
-      autocmd!
-      autocmd CursorMoved * call loupe#hlmatch()
-    augroup END
-  endif
+  augroup LoupeHightlightMatch
+    autocmd!
+    autocmd CursorMoved * call loupe#hlmatch()
+  augroup END
   return a:result
 endfunction
 

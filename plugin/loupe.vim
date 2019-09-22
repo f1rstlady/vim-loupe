@@ -549,12 +549,10 @@ call s:map('g*', 'GStar')
 call s:map('n', 'n')
 
 " Clean-up stray `matchadd()` vestiges.
-if has('autocmd') && has('extra_search')
-  augroup LoupeCleanUp
-    autocmd!
-    autocmd WinEnter * call loupe#private#cleanup()
-  augroup END
-endif
+augroup LoupeCleanUp
+  autocmd!
+  autocmd WinEnter * call loupe#private#cleanup()
+augroup END
 
 " Restore 'cpoptions' to its former value.
 let &cpoptions = s:cpoptions

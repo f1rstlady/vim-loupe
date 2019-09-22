@@ -24,11 +24,9 @@ function! loupe#hlmatch() abort
     return
   endif
 
-  if has('autocmd')
-    augroup LoupeHightlightMatch
-      autocmd!
-    augroup END
-  endif
+  augroup LoupeHightlightMatch
+    autocmd!
+  augroup END
 
   call loupe#private#clear_highlight()
 
@@ -37,11 +35,9 @@ function! loupe#hlmatch() abort
   " @/ current search pattern
   let l:pattern = '\c\%#' . @/
 
-  if exists('*matchadd')
-    try
-      let w:loupe_hlmatch = matchadd(l:highlight, l:pattern)
-    catch /.*/
-      " Invalid search pattern.
-    endtry
-  endif
+  try
+    let w:loupe_hlmatch = matchadd(l:highlight, l:pattern)
+  catch /.*/
+    " Invalid search pattern.
+  endtry
 endfunction
