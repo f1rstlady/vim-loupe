@@ -83,7 +83,7 @@ function! loupe#private#prepare_highlight(result) abort
   if has('autocmd')
     augroup LoupeHightlightMatch
       autocmd!
-      autocmd CursorMoved * :call loupe#hlmatch()
+      autocmd CursorMoved * call loupe#hlmatch()
     augroup END
   endif
   return a:result

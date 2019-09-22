@@ -552,7 +552,7 @@ call s:map('n', 'n')
 if has('autocmd') && has('extra_search')
   augroup LoupeCleanUp
     autocmd!
-    autocmd WinEnter * :call loupe#private#cleanup()
+    autocmd WinEnter * call loupe#private#cleanup()
   augroup END
 endif
 
