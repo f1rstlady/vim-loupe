@@ -297,7 +297,7 @@
 " ```
 " let g:LoupeLoaded=1
 " ```
-if exists('g:LoupeLoaded') || &compatible || v:version < 700
+if exists('g:LoupeLoaded')
   finish
 endif
 let g:LoupeLoaded=1
