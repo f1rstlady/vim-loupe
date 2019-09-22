@@ -14,12 +14,12 @@ function! loupe#hlmatch() abort
   " |hl-IncSearch|). For example:
   "
   " ```
-  " let g:LoupeHighlightGroup='Error'
+  " let g:LoupeHighlightGroup = 'Error'
   " ```
   "
   " To prevent any special highlighting from being applied, set this option to
   " "" (ie. the empty string).
-  let l:highlight=get(g:, 'LoupeHighlightGroup', 'IncSearch')
+  let l:highlight = get(g:, 'LoupeHighlightGroup', 'IncSearch')
   if empty(l:highlight)
     return
   endif
@@ -35,11 +35,11 @@ function! loupe#hlmatch() abort
   " \c case insensitive
   " \%# current cursor position
   " @/ current search pattern
-  let l:pattern='\c\%#' . @/
+  let l:pattern = '\c\%#' . @/
 
   if exists('*matchadd')
     try
-      let w:loupe_hlmatch=matchadd(l:highlight, l:pattern)
+      let w:loupe_hlmatch = matchadd(l:highlight, l:pattern)
     catch /.*/
       " Invalid search pattern.
     endtry

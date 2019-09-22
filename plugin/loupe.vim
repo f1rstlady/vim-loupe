@@ -135,7 +135,7 @@
 "
 " ```
 " " Override Loupe's 'history' setting from 1000 to 10000.
-" set history=10000
+" set history = 10000
 "
 " " Reset Loupe's 'incsearch' back to Vim default.
 " set incsearch&vim
@@ -300,10 +300,10 @@
 if exists('g:LoupeLoaded')
   finish
 endif
-let g:LoupeLoaded=1
+let g:LoupeLoaded = 1
 
 " Temporarily set 'cpoptions' to Vim default as per `:h use-cpo-save`.
-let s:cpoptions=&cpoptions
+let s:cpoptions = &cpoptions
 set cpoptions&vim
 
 ""
@@ -313,9 +313,9 @@ set cpoptions&vim
 "  prevent any mapping from being configured, set to 0:
 "
 " ```
-" let g:LoupeClearHighlightMap=0
+" let g:LoupeClearHighlightMap = 0
 " ```
-let s:clear=get(g:, 'LoupeClearHighlightMap', 1)
+let s:clear = get(g:, 'LoupeClearHighlightMap', 1)
 if s:clear
   if !hasmapto('<Plug>(LoupeClearHighlight)') && maparg('<leader>n', 'n') ==# ''
     nmap <silent> <unique> <leader>n <Plug>(LoupeClearHighlight)
@@ -372,10 +372,10 @@ cnoreabbrev <expr> nohlsearch <SID>Nohlsearch('nohlsearch')
 " To disable, set to 0:
 "
 " ```
-" let g:LoupeVeryMagic=0
+" let g:LoupeVeryMagic = 0
 " ```
 function s:MagicString()
-  let s:magic=get(g:, 'LoupeVeryMagic', 1)
+  let s:magic = get(g:, 'LoupeVeryMagic', 1)
   return s:magic ? '\v' : ''
 endfunction
 
@@ -425,10 +425,10 @@ function! s:map(keys, name)
   " when jumping (via |n|, |N| etc). To disable, set to 0:
   "
   " ```
-  " let g:LoupeCenterResults=0
+  " let g:LoupeCenterResults = 0
   " ```
-  let l:center=get(g:, 'LoupeCenterResults', 1)
-  let l:center_string=l:center ? 'zz' : ''
+  let l:center = get(g:, 'LoupeCenterResults', 1)
+  let l:center_string = l:center ? 'zz' : ''
 
   ""
   " @option g:LoupeCaseSettingsAlways boolean 1
@@ -441,22 +441,22 @@ function! s:map(keys, name)
   " settings in all cases. To disable, set to 0:
   "
   " ```
-  " let g:LoupeCaseSettingsAlways=0
+  " let g:LoupeCaseSettingsAlways = 0
   " ```
   let l:case=get(g:, 'LoupeCaseSettingsAlways', 1)
 
   if a:keys ==# '#'
-    let l:action=l:case ? ":let @/='\\V\\<'.loupe#private#escape(expand('<cword>')).'\\>'<CR>:let v:searchforward=0<CR>n" : '#'
+    let l:action = l:case ? ":let @/='\\V\\<'.loupe#private#escape(expand('<cword>')).'\\>'<CR>:let v:searchforward=0<CR>n" : '#'
   elseif a:keys ==# '*'
-    let l:action=l:case ? ":let @/='\\V\\<'.loupe#private#escape(expand('<cword>')).'\\>'<CR>:let v:searchforward=1<CR>n" : '*'
+    let l:action = l:case ? ":let @/='\\V\\<'.loupe#private#escape(expand('<cword>')).'\\>'<CR>:let v:searchforward=1<CR>n" : '*'
   elseif a:keys ==# 'N'
-    let l:action='N'
+    let l:action = 'N'
   elseif a:keys ==# 'g#'
-    let l:action=l:case ? ":let @/='\\V'.loupe#private#escape(expand('<cword>'))<CR>:let v:searchforward=0<CR>n" : 'g#'
+    let l:action = l:case ? ":let @/='\\V'.loupe#private#escape(expand('<cword>'))<CR>:let v:searchforward=0<CR>n" : 'g#'
   elseif a:keys ==# 'g*'
-    let l:action=l:case ? ":let @/='\\V'.loupe#private#escape(expand('<cword>'))<CR>:let v:searchforward=1<CR>n" : 'g*'
+    let l:action = l:case ? ":let @/='\\V'.loupe#private#escape(expand('<cword>'))<CR>:let v:searchforward=1<CR>n" : 'g*'
   elseif a:keys ==# 'n'
-    let l:action='n'
+    let l:action = 'n'
   endif
 
   if !hasmapto('<Plug>(Loupe' . a:name . ')')
@@ -557,5 +557,5 @@ if has('autocmd') && has('extra_search')
 endif
 
 " Restore 'cpoptions' to its former value.
-let &cpoptions=s:cpoptions
+let &cpoptions = s:cpoptions
 unlet s:cpoptions
