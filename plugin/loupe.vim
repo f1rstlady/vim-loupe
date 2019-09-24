@@ -317,7 +317,7 @@ set cpoptions&vim
 " ```
 let s:clear = get(g:, 'LoupeClearHighlightMap', 1)
 if s:clear
-  if !hasmapto('<Plug>(LoupeClearHighlight)') && maparg('<leader>n', 'n') ==# ''
+  if !hasmapto('<Plug>(LoupeClearHighlight)') && empty(maparg('<leader>n', 'n'))
     nmap <silent> <unique> <leader>n <Plug>(LoupeClearHighlight)
   endif
 endif
